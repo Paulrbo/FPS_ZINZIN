@@ -136,8 +136,8 @@ GameObject:
   - component: {fileID: 69740923}
   - component: {fileID: 69740922}
   - component: {fileID: 69740926}
-  m_Layer: 0
-  m_Name: Cube (3)
+  m_Layer: 7
+  m_Name: Mur 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +219,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 66.263, z: 0}
 --- !u!54 &69740926
 Rigidbody:
@@ -420,8 +420,8 @@ GameObject:
   - component: {fileID: 882620663}
   - component: {fileID: 882620662}
   - component: {fileID: 882620666}
-  m_Layer: 0
-  m_Name: Cube (1)
+  m_Layer: 8
+  m_Name: Cible 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -675,8 +675,8 @@ GameObject:
   - component: {fileID: 1520421109}
   - component: {fileID: 1520421108}
   - component: {fileID: 1520421112}
-  m_Layer: 0
-  m_Name: Cube (2)
+  m_Layer: 7
+  m_Name: Mur 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -758,7 +758,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1520421112
 Rigidbody:
@@ -789,8 +789,8 @@ GameObject:
   - component: {fileID: 1926671793}
   - component: {fileID: 1926671792}
   - component: {fileID: 1926671796}
-  m_Layer: 0
-  m_Name: Cube (4)
+  m_Layer: 8
+  m_Name: Cible 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -872,7 +872,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 158.516, z: 0}
 --- !u!54 &1926671796
 Rigidbody:
