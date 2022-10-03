@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6113356833232582113}
   - component: {fileID: 3683049640512091992}
-  m_Layer: 0
+  - component: {fileID: 4169045436418342957}
+  m_Layer: 6
   m_Name: baballe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +51,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4169045436418342957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2894572409002654354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c2674619689c64cb9ef389fa233ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3055087457975815535
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +75,7 @@ GameObject:
   - component: {fileID: 3693335723630162807}
   - component: {fileID: 7508275365838014911}
   - component: {fileID: 1262576476524571665}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +173,7 @@ GameObject:
   - component: {fileID: 6043121549683573328}
   - component: {fileID: 949561333931891939}
   - component: {fileID: 2975174004983713989}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
