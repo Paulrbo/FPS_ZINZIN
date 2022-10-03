@@ -21,7 +21,7 @@ public class MonShoot : MonoBehaviour
         //j'instancie la balle
         GameObject munition = Instantiate(prefab,
             cameraTransform.position,
-            cameraTransform.rotation);
+            cameraTransform.rotation * Quaternion.Euler(90, 0, 0));
 
         //je récupère son rigidBody
         Rigidbody munitionRigidbody = munition.GetComponent<Rigidbody>();
