@@ -14,6 +14,7 @@ public class MaCollision : MonoBehaviour
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Cible"))
         {
             Destroy(collision.gameObject);
+            Debug.Log("BOOM");
         }
     }
 }
