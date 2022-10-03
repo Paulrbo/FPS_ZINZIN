@@ -17,16 +17,17 @@ public class MonShoot : MonoBehaviour
     
     public void SpawnMunition()
     {
+        
         //j'instancie la balle
         GameObject munition = Instantiate(prefab,
             cameraTransform.position,
             cameraTransform.rotation);
-        
+
         //je récupère son rigidBody
         Rigidbody munitionRigidbody = munition.GetComponent<Rigidbody>();
         
         //j'applique une force initiale à la balle
-        munitionRigidbody.AddForce(cameraTransform.forward * 10000f);
+        munitionRigidbody.AddForce(cameraTransform.forward * 1000f);
     }
 
     private IEnumerator SpawnMunitions()
