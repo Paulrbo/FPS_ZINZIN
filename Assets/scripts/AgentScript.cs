@@ -42,8 +42,8 @@ public class AgentScript : MonoBehaviour
             timer = 0;
         }
         //Debug.Log(randomTime + " " + timer);
-        //anim.speed = agent.speed / 2;
-        //Debug.Log(anim.speed + "  " + agent.speed);
+        
+        Debug.Log(anim.speed + "  " + agent.velocity);
 
         
     }
@@ -52,10 +52,13 @@ public class AgentScript : MonoBehaviour
        // walkPoint = transform.position;
         //walkPointSet = true;
         anim.SetBool("isWalking", false);
+        anim.speed = 1;
     }
     private void Walk()
     {
-        
+        anim.SetBool("isWalking", true);
+        anim.speed = agent.velocity / 2;
+
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -67,8 +70,6 @@ public class AgentScript : MonoBehaviour
         if (distanceToWalkPoint.magnitude < 1f)
         {
             walkPointSet = false;
-            anim.SetBool("isWalking", true);
-
         }
             
 
