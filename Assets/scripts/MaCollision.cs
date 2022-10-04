@@ -13,5 +13,22 @@ public class MaCollision : MonoBehaviour
             //Destroy(gameObject);
             Destroy(collision.gameObject,2f);
         }
+        if(collision.gameObject.layer == LayerMask.NameToLayer("IA"))
+        {
+            Vector3 impactDirection = transform.position;
+            //Debug.Log("kill");
+            collision.gameObject.GetComponent<AgentScript>().Die();
+            ContactPoint contact = collision.contacts[0];
+            //Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+            Vector3 pos = contact.point;
+            
+            collision.gameObject.GetComponent<AgentScript>().AddImpact(pos,impactDirection);
+        }
+        Destroy(gameObject,1);
+
+    }
+    private void Update()
+    {
+        Destroy(gameObject, 10);
     }
 }

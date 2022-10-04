@@ -7,16 +7,11 @@ public class Spawner : MonoBehaviour
     public GameObject agent;
     public float spawnRange;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.S))
+        if(Input.GetKeyDown(KeyCode.N))
         {
             float randomZ = Random.Range(-spawnRange, spawnRange);
             float randomX = Random.Range(-spawnRange, spawnRange);
@@ -27,7 +22,7 @@ public class Spawner : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            AgentScript.isDead = true;
+            AgentScript.kill = true;
         }
 
     }

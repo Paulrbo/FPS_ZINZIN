@@ -13,12 +13,13 @@ public class AgentScript : MonoBehaviour
     public float walkPointRange;
     private float timer;
     private int randomTime;
-    public static bool isDead;
+    public static bool kill;
+    public bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        isDead = false;
+        kill = false;
         setRigidbodyState(true);
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
@@ -30,7 +31,7 @@ public class AgentScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isDead)
+        if (!kill&&!isDead)
         {
             timer += Time.deltaTime;
 
@@ -52,18 +53,14 @@ public class AgentScript : MonoBehaviour
                 Walk();
             }
         }
-        else
-        {
-            setRigidbodyState(false);
-            GetComponent<AgentScript>().enabled = false;
-        }
+        
         
 
         
     }
     private void Idle()
     {
-        Debug.Log("Idle");
+        //Debug.Log("Idle");
         anim.SetBool("isWalking", false);
         anim.speed = 1;
     }
@@ -110,21 +107,31 @@ public class AgentScript : MonoBehaviour
         GetComponent<Animator>().enabled = state;
         GetComponent<NavMeshAgent>().enabled = state;
         Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
-
+        Collider[] cols = GetComponentsInChildren<Collider>();
+        foreach(Collider col in cols)
+        {
+            col.enabled = !state;
+        }
         foreach (Rigidbody rigidbody in rigidbodies)
         {
             rigidbody.isKinematic = state;
         }
-
         GetComponent<Rigidbody>().isKinematic = !state;
 
-        if (!state)
+        GetComponent<Collider>().enabled = state;
+    }
+    public void Die()
+    {
+        isDead = true;
+        setRigidbodyState(false);
+        Debug.Log("il est bien mort");
+    }
+    public void AddImpact(Vector3 hitPoint, Vector3 impact)
+    {
+        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
+        foreach (Rigidbody rigidbody in rigidbodies)
         {
-            foreach (Rigidbody rigidbody in rigidbodies)
-            {
-                rigidbody.AddForce(transform.forward*200);
-                rigidbody.AddForce(transform.up*10000f);
-            }
+            //rigidbody.AddForceAtPosition(impact*0.2f, hitPoint, ForceMode.Impulse);
         }
 
     }
