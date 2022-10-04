@@ -9,70 +9,86 @@ public class AgentScript : MonoBehaviour
     public Animator anim;
     public Vector3 walkPoint;
     private bool walkPointSet = false;
+    private bool isDone = true;
     public float walkPointRange;
     private float timer;
     private int randomTime;
+    public static bool isDead;
 
     // Start is called before the first frame update
     void Start()
     {
+        isDead = false;
+        setRigidbodyState(true);
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         anim.SetBool("isWalking", false);
-
+        SearchWalkPoint();
         randomTime = Random.Range(0, 2);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        timer += Time.deltaTime;
-        if (randomTime < timer && walkPointSet)
+        if (!isDead)
         {
-            if (Random.value >= 0.2)
+            timer += Time.deltaTime;
+
+            if (randomTime < timer && isDone)
+            {
+                if (Random.value >= 0.3)
+                {
+                    if (!walkPointSet) SearchWalkPoint();
+                }
+                else
+                {
+                    Idle();
+                }
+                randomTime = Random.Range(0, 10);
+                timer = 0;
+            }
+            if (!isDone)
             {
                 Walk();
             }
-            else
-            {
-                Idle();
-            }
-            randomTime = Random.Range(0, 10);
-            timer = 0;
         }
-        //Debug.Log(randomTime + " " + timer);
+        else
+        {
+            setRigidbodyState(false);
+            GetComponent<AgentScript>().enabled = false;
+        }
         
-        Debug.Log(anim.speed + "  " + agent.velocity);
 
         
     }
     private void Idle()
     {
-       // walkPoint = transform.position;
-        //walkPointSet = true;
+        Debug.Log("Idle");
         anim.SetBool("isWalking", false);
         anim.speed = 1;
     }
     private void Walk()
     {
+        
         anim.SetBool("isWalking", true);
-        anim.speed = agent.velocity / 2;
-
-        if (!walkPointSet) SearchWalkPoint();
+        anim.speed = (agent.velocity.magnitude /2);
 
         if (walkPointSet)
             agent.SetDestination(walkPoint);
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
+        
         //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
+        if (distanceToWalkPoint.magnitude < 0.2f)
         {
             walkPointSet = false;
+            isDone = true;
+            Idle();
         }
-            
-
+        else
+        {
+            isDone = false;
+        }
     }
     private void SearchWalkPoint()
     {
@@ -85,8 +101,31 @@ public class AgentScript : MonoBehaviour
         if (Physics.Raycast(walkPoint, -transform.up, 2f))
         {
             walkPointSet = true;
-            //Idle();
+            isDone = false;
         }
-            
+    }
+
+    void setRigidbodyState(bool state)
+    {
+        GetComponent<Animator>().enabled = state;
+        GetComponent<NavMeshAgent>().enabled = state;
+        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
+
+        foreach (Rigidbody rigidbody in rigidbodies)
+        {
+            rigidbody.isKinematic = state;
+        }
+
+        GetComponent<Rigidbody>().isKinematic = !state;
+
+        if (!state)
+        {
+            foreach (Rigidbody rigidbody in rigidbodies)
+            {
+                rigidbody.AddForce(transform.forward*200);
+                rigidbody.AddForce(transform.up*10000f);
+            }
+        }
+
     }
 }

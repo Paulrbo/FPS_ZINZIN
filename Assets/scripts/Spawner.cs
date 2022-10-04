@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
+        if(Input.GetKeyDown(KeyCode.S))
         {
             float randomZ = Random.Range(-spawnRange, spawnRange);
             float randomX = Random.Range(-spawnRange, spawnRange);
@@ -25,5 +25,10 @@ public class Spawner : MonoBehaviour
             Quaternion rot = Quaternion.Euler(euler);
             Instantiate(agent, new Vector3(randomX, 0, randomZ), rot);
         }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            AgentScript.isDead = true;
+        }
+
     }
 }
