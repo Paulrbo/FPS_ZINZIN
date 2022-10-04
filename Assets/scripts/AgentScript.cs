@@ -28,7 +28,7 @@ public class AgentScript : MonoBehaviour
     {
         
         timer += Time.deltaTime;
-        if (randomTime < timer)
+        if (randomTime < timer && walkPointSet)
         {
             if (Random.value >= 0.2)
             {
@@ -36,7 +36,6 @@ public class AgentScript : MonoBehaviour
             }
             else
             {
-                //Debug.Log("lol");
                 Idle();
             }
             randomTime = Random.Range(0, 10);
@@ -85,7 +84,7 @@ public class AgentScript : MonoBehaviour
         if (Physics.Raycast(walkPoint, -transform.up, 2f))
         {
             walkPointSet = true;
-            Idle();
+            //Idle();
         }
             
     }
