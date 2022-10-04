@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            AgentScript.kill = true;
+            //AgentScript.isDead = true;
         }
 
     }
