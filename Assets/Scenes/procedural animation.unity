@@ -108,7 +108,7 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 45
+    agentSlope: 20
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: f417f81bcbd13e741842f5cc0268e8fd, type: 2}
 --- !u!1 &44530517
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb43fce388d18844b952b5a729fa0aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 7261604556847832626, guid: 95b3ecf69c0a063479f9c5ebb225ab3f, type: 3}
+  agent: {fileID: 3898564162101349052, guid: 95b3ecf69c0a063479f9c5ebb225ab3f, type: 3}
   spawnRange: 6
 --- !u!4 &44530519
 Transform:
@@ -433,7 +433,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1512622366
 PrefabInstance:
@@ -448,7 +448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8660403587220266770, guid: cc92df962fb196d4586bd70e1a8b4d59, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8660403587220266770, guid: cc92df962fb196d4586bd70e1a8b4d59, type: 3}
       propertyPath: m_LocalPosition.x
