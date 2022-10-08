@@ -27,7 +27,7 @@ public class MonShoot : MonoBehaviour
         Rigidbody munitionRigidbody = munition.GetComponent<Rigidbody>();
         
         //j'applique une force initiale à la balle
-        munitionRigidbody.AddForce(cameraTransform.forward * 1000f);
+        munitionRigidbody.AddForce(cameraTransform.forward * 5000f);
     }
 
     private IEnumerator SpawnMunitions()
