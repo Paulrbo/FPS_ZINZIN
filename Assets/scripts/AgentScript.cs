@@ -13,12 +13,11 @@ public class AgentScript : MonoBehaviour
     public float walkPointRange;
     private float timer;
     private int randomTime;
-    public static bool isDead;
+    public bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        isDead = false;
         setRigidbodyState(true);
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
@@ -92,7 +91,7 @@ public class AgentScript : MonoBehaviour
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        walkPoint = new Vector3(randomX, transform.position.y, randomZ);
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f))
         {
@@ -133,7 +132,7 @@ public class AgentScript : MonoBehaviour
     {
         isDead = true;
         setRigidbodyState(false);
-        Destroy(gameObject, 10);
+        Destroy(gameObject, 5);
     }
     public void AddImpact(Vector3 hitPoint, Vector3 impact)
     {

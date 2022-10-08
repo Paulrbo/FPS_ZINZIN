@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 4342926512352663657}
   m_Layer: 3
   m_Name: agent_ia
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -887,7 +887,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 6
+  m_Constraints: 14
   m_CollisionDetection: 0
 --- !u!136 &4342926512352663659
 CapsuleCollider:
@@ -918,7 +918,8 @@ MonoBehaviour:
   agent: {fileID: 4342926512352663657}
   anim: {fileID: 7867710547376012932}
   walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 6
+  walkPointRange: 9
+  isDead: 0
 --- !u!195 &4342926512352663657
 NavMeshAgent:
   m_ObjectHideFlags: 0
